@@ -9,13 +9,16 @@ mattermostのコマンド[mmctl](https://docs.mattermost.com/manage/mmctl-comman
 
 ### ベースとなるコマンド群(binディレクトリ直下)
 
-* mattermost サービスの起動([mm-start.bash](https://github.com/tmori/mattermost-initializer/blob/main/bin/mm-start.bash)
-* mattermost サービスの停止([mm-stop.bash](https://github.com/tmori/mattermost-initializer/blob/main/bin/mm-stop.bash)
+* mattermost サービスの起動([mm-start.bash](https://github.com/tmori/mattermost-initializer/blob/main/bin/mm-start.bash))
+* mattermost サービスの停止([mm-stop.bash](https://github.com/tmori/mattermost-initializer/blob/main/bin/mm-stop.bash))
 * mattermost のサービス状態参照([mm-status.bash](https://github.com/tmori/mattermost-initializer/blob/main/bin/mm-status.bash))
 * mattermost のデータベースの初期化([mm-reset.bash](https://github.com/tmori/mattermost-initializer/blob/main/bin/mm-reset.bash))
   * データベースを削除し、新規でデータベースを作成します
 
 ### バッチ処理群(batchディレクトリ直下)
+以下のバッチ処理を用意しています。
+それぞれ独立して実行できますが、setup.bash を利用すると一括して全チーム/チャネル/ユーザを一括登録できるので便利です。
+ただし、バッチ処理の入力情報は、特定の書式で記載れたファイルを用意する必要があります（後述）。
 
 * ユーザの一括登録([add-users.bash](https://github.com/tmori/mattermost-initializer/blob/main/batch/add-users.bash))
 * チームの一括登録([add-teams.bash](https://github.com/tmori/mattermost-initializer/blob/main/batch/add-teams.bash))
@@ -43,6 +46,9 @@ mattermostのコマンド[mmctl](https://docs.mattermost.com/manage/mmctl-comman
 ```
 git clone --recursive https://github.com/tmori/mattermost-initializer.git
 ```
+
+### バッチ処理向け入力データの書式
+TODO
 
 ### 環境変数
 本ツールを実行するためには、mattermost向けのパラメータとDB向けのパラメータを設定する必要があります。
