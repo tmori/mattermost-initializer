@@ -47,10 +47,50 @@ mattermostのコマンド[mmctl](https://docs.mattermost.com/manage/mmctl-comman
 git clone --recursive https://github.com/tmori/mattermost-initializer.git
 ```
 
-### バッチ処理向け入力データの書式
+## バッチ処理向け入力データの構成/種類/書式
+
+### 構成
+バッチ処理向けの入力データは以下の構成でファイル配置する必要があります。
+
+```
+input/base-data/
+├── teams
+│   └── <チーム名1>
+│   :   ├── channel
+│   :   │   └── <チャネル名1>.txt
+|   :   :   :
+│   :   │   └── <チャネル名N>.txt
+│   :   ├── channels.txt
+│   :   ├── <チーム名1>.txt
+│   :   ├── team-users.txt
+│   :   └── team.txt
+:   :
+│   └── <チーム名N>
+│       ├── channel
+│       │   └── <チャネル名1>.txt
+|   :   :   :
+│   :   │   └── <チャネル名M>.txt
+│       ├── channels.txt
+│       ├── <チーム名N>.txt
+│       ├── team-users.txt
+│       └── team.txt
+└── user
+    ├── <ユーザ名1>.txt
+    │      :
+    └── <ユーザ名N>.txt
+```
+
+
+### 種類
+バッチ処理向けの入力データの種類としては以下があります。
+
 TODO
 
-### 環境変数
+### 書式
+
+TODO
+
+## 環境変数
 本ツールを実行するためには、mattermost向けのパラメータとDB向けのパラメータを設定する必要があります。
 
 ### mattermost 向けのパラメータ
