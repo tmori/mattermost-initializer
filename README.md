@@ -68,8 +68,8 @@ input/base-data/
 │   └── <チーム名N>
 │       ├── channel
 │       │   └── <チャネル名1>.txt
-|   :   :   :
-│   :   │   └── <チャネル名M>.txt
+|       :   :
+│       │   └── <チャネル名M>.txt
 │       ├── channels.txt
 │       ├── <チーム名N>.txt
 │       ├── team-users.txt
@@ -80,11 +80,22 @@ input/base-data/
     └── <ユーザ名N>.txt
 ```
 
-
 ### 種類
 バッチ処理向けの入力データの種類としては以下があります。
 
-TODO
+* teams/<チーム名>
+  * team.txt
+    * チーム情報を設定します
+  * channels.txt
+    * チーム内のチャネル情報を設定します
+  * team-users.txt
+    * チーム所属ユーザを設定します
+  * channel
+    * <チャネル名>.txt
+      * チャネル所属ユーザを設定します
+* user
+  * <ユーザ名>.txt
+    * ユーザ情報を設定します
 
 ### 書式
 
