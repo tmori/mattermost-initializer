@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ $# -eq 1 ]
+then
+    EXEC_DIR=${1}
+    cd ${EXEC_DIR}
+fi
+
 if [ -z ${MATTERMOST_BATCH_INPUT_DIR} ]
 then
     source env/env.bash

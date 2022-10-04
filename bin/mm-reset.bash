@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ $# -eq 1 ]
+then
+    EXEC_DIR=${1}
+    cd ${EXEC_DIR}
+fi
+
 source env/env.bash
 
 bash bin/mm-status.bash  | grep Active | grep running
