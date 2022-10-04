@@ -15,19 +15,11 @@ do
     PASSWD=`echo ${user_info} | awk -F: '{print $2}'`
     EMAIL=`echo ${user_info} | awk -F: '{print $3}'`
     ROLE=`echo ${user_info} | awk -F: '{print $4}'`
-    sudo -u ${MATTERMOST_ACCOUNT_NAME} ${MATTERMOST_CMD} \
-        user create --email ${EMAIL} \
-        --username ${USER_NAME} \
-        --password ${PASSWD} \
-        --local
+    su ${MATTERMOST_ACCOUNT_NAME} -c "${MATTERMOST_CMD} user create --email ${EMAIL} --username ${USER_NAME} --password ${PASSWD} --local"
     if [ "${ROLE}" = "system_admin" ]
     then
-        sudo -u ${MATTERMOST_ACCOUNT_NAME} ${MATTERMOST_CMD} \
-            roles system_admin ${USER_NAME} \
-            --local
+        su ${MATTERMOST_ACCOUNT_NAME} -c "${MATTERMOST_CMD} roles system_admin ${USER_NAME} --local"
     else
-        sudo -u ${MATTERMOST_ACCOUNT_NAME} ${MATTERMOST_CMD} \
-            roles member ${USER_NAME} \
-            --local
+        su ${MATTERMOST_ACCOUNT_NAME} -c "${MATTERMOST_CMD} roles member ${USER_NAME} --local"
     fi
 done

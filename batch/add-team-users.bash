@@ -25,9 +25,5 @@ do
     USER_NAME=`echo ${user_info} | awk -F: '{print $1}'`
     PASSWD=`echo ${user_info} | awk -F: '{print $2}'`
     EMAIL=`echo ${user_info} | awk -F: '{print $3}'`
-    sudo -u ${MATTERMOST_ACCOUNT_NAME} ${MATTERMOST_CMD} \
-        team users add ${TEAM_NAME} \
-        ${EMAIL} \
-        ${USER_NAME} \
-        --local
+    su ${MATTERMOST_ACCOUNT_NAME}  -c "${MATTERMOST_CMD} team users add ${TEAM_NAME} ${EMAIL} ${USER_NAME} --local"
 done
