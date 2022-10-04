@@ -1,1 +1,1 @@
-private-room:channel-01:channel-01:private
+private-room:pchannel-01:pchannel-01:private

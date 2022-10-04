@@ -1,2 +1,0 @@
-user/root.txt
-user/tmori.txt

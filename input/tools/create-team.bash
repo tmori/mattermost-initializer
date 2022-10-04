@@ -27,6 +27,7 @@ then
     :
 else
     mkdir ${BASE_DIR}/teams/${TEAM_NAME}
+    mkdir ${BASE_DIR}/teams/${TEAM_NAME}/channel
 fi
 
 echo "${TEAM_NAME}:${TEAM_NAME}:${PRIV}" > ${BASE_DIR}/teams/${TEAM_NAME}/team.txt

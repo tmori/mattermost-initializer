@@ -14,11 +14,11 @@ CHANNEL_NAME=${3}
 USER_NAME=${4}
 PRIV=${5}
 
-if [ -d ${BASE_DIR}/teams/${TEAM_NAME}/${CHANNEL_NAME} ]
+if [ -d ${BASE_DIR}/teams/${TEAM_NAME}/channel ]
 then
     :
 else
-    echo "ERROR: not found ${BASE_DIR}/teams/${TEAM_NAME}/${CHANNEL_NAME}"
+    echo "ERROR: not found ${BASE_DIR}/teams/${TEAM_NAME}/channel"
     exit 1
 fi
 
@@ -35,9 +35,9 @@ cat  ${BASE_DIR}/teams/${TEAM_NAME}/${TEAM_NAME}.txt | sort | uniq > tmp
 mv tmp ${BASE_DIR}/teams/${TEAM_NAME}/${TEAM_NAME}.txt
 
 # <channel>.txt
-echo "user/${USER_NAME}.txt" >> ${BASE_DIR}/teams/${TEAM_NAME}/${CHANNEL_NAME}/${CHANNEL_NAME}.txt
-cat  ${BASE_DIR}/teams/${TEAM_NAME}/${CHANNEL_NAME}/${CHANNEL_NAME}.txt | sort | uniq > tmp
-mv tmp ${BASE_DIR}/teams/${TEAM_NAME}/${CHANNEL_NAME}/${CHANNEL_NAME}.txt
+echo "user/${USER_NAME}.txt" >> ${BASE_DIR}/teams/${TEAM_NAME}/channel/${CHANNEL_NAME}.txt
+cat  ${BASE_DIR}/teams/${TEAM_NAME}/channel/${CHANNEL_NAME}.txt | sort | uniq > tmp
+mv tmp ${BASE_DIR}/teams/${TEAM_NAME}/channel/${CHANNEL_NAME}.txt
 
 # <user>.txt
 echo ${USER_DATA} > ${BASE_DIR}/user/${USER_NAME}.txt

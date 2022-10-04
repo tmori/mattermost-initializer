@@ -18,11 +18,11 @@ else
     exit 1
 fi
 
-if [ -d ${BASE_DIR}/teams/${TEAM_NAME}/${CHANNEL_NAME} ]
+if [ -d ${BASE_DIR}/teams/${TEAM_NAME}/channel ]
 then
     :
 else
-    mkdir ${BASE_DIR}/teams/${TEAM_NAME}/${CHANNEL_NAME}
+    mkdir ${BASE_DIR}/teams/${TEAM_NAME}/channel
 fi
 
 echo "${TEAM_NAME}:${CHANNEL_NAME}:${CHANNEL_NAME}:${PRIV}" >>  ${BASE_DIR}/teams/${TEAM_NAME}/channels.txt
