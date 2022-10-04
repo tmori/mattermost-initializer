@@ -1,0 +1,1 @@
+public-room:channel-01:channel-01:public

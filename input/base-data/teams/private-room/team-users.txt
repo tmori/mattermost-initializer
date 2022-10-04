@@ -1,0 +1,2 @@
+root:Password-999:root@example.com:system_admin
+tmori:Password-999:tmori@example.com:member
