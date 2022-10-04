@@ -25,6 +25,52 @@ mattermostのコマンド[mmctl](https://docs.mattermost.com/manage/mmctl-comman
 * チーム単位での上記の一括実行(setup-one.bash)
 * 全チームに対する上記の一括実行(setup.bash)
 
+### 環境変数
+本ツールを実行するためには、mattermost向けのパラメータとDB向けのパラメータを設定する必要があります。
+
+### mattermost 向けのパラメータ
+env/env.bash の以下のパラメータを設定する必要があります。
+
+* DB_TOOL_PATH(変更不要)
+  * DB向けのツールの配置パスです。
+* MATTERMOST_CMD_PATH
+  * mmctl コマンドパスです。
+  * デフォルトと異なる場合は変更してください。
+* MATTERMOST_DBNAME
+  * mattermost用のデータベース名です。
+  * デフォルトと異なる場合は変更してください。
+* MATTERMOST_ACCOUNT_NAME
+  * mattermostのアカウント名です。
+  * デフォルトと異なる場合は変更してください。
+* MATTERMOST_USER_PASSWD
+  * mattermostに登録するユーザの初期パスワードです。
+  * デフォルトと異なるものにしたい場合は変更してください。
+* MATTERMOST_BATCH_INPUT_DIR
+  * バッチ処理の入力データ配置ディレクトリパスです。
+  * デフォルトと異なるものにしたい場合は変更してください。
+
+### DB 向けのパラメータ
+db-backup-restore/env/env.bash の以下のパラメータを設定する必要があります。
+* DB_IMPL_TYPE
+  * DBの種類です。postgresql としてください。
+* PSQL_DB_PORT
+  * DBのポート番号です。
+  * デフォルトと異なる場合は変更してください。
+* PSQL_DB_HOST
+  * DBのIPアドレスです。
+  * デフォルトと異なる場合は変更してください。
+* PSQL_DB_USERNAME
+  * mattermostのデータベースのユーザ名です。
+  * デフォルトと異なる場合は変更してください。
+* PSQL_DB_PGPASSWORD
+  * mattermostのデータベースのユーザパスワードです。
+  * デフォルトと異なる場合は変更してください。
+* PSQL_DB_POSTGRES_USERNAME(変更不要)
+  * postgresql のアカウント名です。
+* PSQL_DB_POSTGRES_PGPASSWORD
+  * postgresのパスワードです。
+  * デフォルトと異なる場合は変更してください。
+
 ## 前提とする環境
 
 * OS: Ubuntu 20.0.4
@@ -40,6 +86,6 @@ mattermostのコマンド[mmctl](https://docs.mattermost.com/manage/mmctl-comman
 本リポジトリをクローンするだけです。
 
 ```
-git clone https://github.com/tmori/mattermost-initializer.git
+git clone --recursive https://github.com/tmori/mattermost-initializer.git
 ```
 
