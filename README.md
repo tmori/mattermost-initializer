@@ -47,7 +47,7 @@ mattermostのコマンド[mmctl](https://docs.mattermost.com/manage/mmctl-comman
 git clone --recursive https://github.com/tmori/mattermost-initializer.git
 ```
 
-## バッチ処理向け入力データの構成/種類/書式
+## バッチ処理向け入力データの構成/種類/書式/簡易設定ツール
 
 ### 構成
 バッチ処理向けの入力データは以下の構成でファイル配置する必要があります。
@@ -201,6 +201,24 @@ user/<ユーザ名>.txt
   * 一般ユーザ：member
   * 管理者：system_admin
 
+ ### 簡易設定ツール
+ 
+ 上記ファイル群を簡単に設定するためのツールを、`input/tools` 配下に用意しています。
+ 
+ * [create-team.bash](https://github.com/tmori/mattermost-initializer/blob/main/input/tools/create-team.bash)
+   * チーム追加します
+ * [create-channel.bash](https://github.com/tmori/mattermost-initializer/blob/main/input/tools/create-channel.bash)
+   * チャネル追加します
+ * [add-user.bash](https://github.com/tmori/mattermost-initializer/blob/main/input/tools/add-user.bash)
+   * ユーザ追加します
+ * [reset.bash](https://github.com/tmori/mattermost-initializer/blob/main/input/tools/reset.bash)
+   * 設定ファイルを一括削除します
+
+使い方例は、以下を参照ください。
+ 
+ https://github.com/tmori/mattermost-initializer/blob/main/test-data/create.bash
+ 
+ 
 ## 環境変数
 本ツールを実行するためには、mattermost向けのパラメータとDB向けのパラメータを設定する必要があります。
 
