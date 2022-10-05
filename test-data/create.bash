@@ -35,6 +35,7 @@ function create_team()
     done
 }
 
+bash input/tools/reset.bash input/base-data
 
 create_team private-room pchannel-01 private
 create_team public-room  channel-01  public
