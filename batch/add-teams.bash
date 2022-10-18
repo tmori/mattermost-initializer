@@ -15,5 +15,5 @@ do
     DISP_NAME=`echo ${team_info} | awk -F: '{print $2}'`
     PRIVATE_OPT=`echo ${team_info} | awk -F: '{print $3}'`
     get_private_option ${PRIVATE_OPT}
-    su ${MATTERMOST_ACCOUNT_NAME} -c "${MATTERMOST_CMD} team create --name ${TEAM_NAME} --display-name ${DISP_NAME} ${PRIVATE_OPTION} --local"
+    do_cmd "${MATTERMOST_CMD} team create --name ${TEAM_NAME} --display-name ${DISP_NAME} ${PRIVATE_OPTION} --local"
 done

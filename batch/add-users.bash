@@ -15,11 +15,11 @@ do
     PASSWD=`echo ${user_info} | awk -F: '{print $2}'`
     EMAIL=`echo ${user_info} | awk -F: '{print $3}'`
     ROLE=`echo ${user_info} | awk -F: '{print $4}'`
-    su ${MATTERMOST_ACCOUNT_NAME} -c "${MATTERMOST_CMD} user create --email ${EMAIL} --username ${USER_NAME} --password ${PASSWD} --local"
+    do_cmd "${MATTERMOST_CMD} user create --email ${EMAIL} --username ${USER_NAME} --password ${PASSWD} --local"
     if [ "${ROLE}" = "system_admin" ]
     then
-        su ${MATTERMOST_ACCOUNT_NAME} -c "${MATTERMOST_CMD} roles system_admin ${USER_NAME} --local"
+        do_cmd "${MATTERMOST_CMD} roles system_admin ${USER_NAME} --local"
     else
-        su ${MATTERMOST_ACCOUNT_NAME} -c "${MATTERMOST_CMD} roles member ${USER_NAME} --local"
+        do_cmd "${MATTERMOST_CMD} roles member ${USER_NAME} --local"
     fi
 done

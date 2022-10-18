@@ -17,6 +17,6 @@ do
     PRIVATE_OPT=`echo ${channel_info} | awk -F: '{print $4}'`
 
     get_private_option ${PRIVATE_OPT}
-    su ${MATTERMOST_ACCOUNT_NAME} -c "${MATTERMOST_CMD} channel create --team ${TEAM_NAME} --name  ${CHANNEL_NAME} --display-name ${CHANNEL_DNAME} ${PRIVATE_OPTION} --local"
+    do_cmd "${MATTERMOST_CMD} channel create --team ${TEAM_NAME} --name  ${CHANNEL_NAME} --display-name ${CHANNEL_DNAME} ${PRIVATE_OPTION} --local"
 done
 

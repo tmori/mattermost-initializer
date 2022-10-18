@@ -20,3 +20,15 @@ function get_private_option()
         PRIVATE_OPTION="--private"
     fi
 }
+
+function do_cmd()
+{
+    ARG=${1}
+    CUSR=`whoami`
+    if [ $CUSR = "MATTERMOST_ACCOUNT_NAME" ]
+    then
+        $ARG
+    else
+        su ${MATTERMOST_ACCOUNT_NAME} -c "$ARG"
+    fi
+}
