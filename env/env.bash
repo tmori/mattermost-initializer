@@ -25,7 +25,7 @@ function do_cmd()
 {
     ARG=${1}
     CUSR=`whoami`
-    if [ $CUSR = "MATTERMOST_ACCOUNT_NAME" ]
+    if [ $CUSR = "${MATTERMOST_ACCOUNT_NAME}" ]
     then
         $ARG
     else
