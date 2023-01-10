@@ -19,9 +19,16 @@ do
     if [ $NUM_OPTS -eq 4 ]
     then
         do_cmd "${MATTERMOST_CMD} user create --email ${EMAIL} --username ${USER_NAME} --password ${PASSWD} --local"
-    else
+    elif [ $NUM_OPTS -eq 5 ]
         FIRST_NAME=`echo ${user_info} | awk -F: '{print $5}'`
         do_cmd "${MATTERMOST_CMD} user create --email ${EMAIL} --username ${USER_NAME} --password ${PASSWD} --firstname ${FIRST_NAME} --local"
+    fi
+    elif [ $NUM_OPTS -eq 6 ]
+        FIRST_NAME=`echo ${user_info} | awk -F: '{print $5}'`
+        LAST_NAME=`echo ${user_info} | awk -F: '{print $6}'`
+        do_cmd "${MATTERMOST_CMD} user create --email ${EMAIL} --username ${USER_NAME} --password ${PASSWD} --firstname ${FIRST_NAME} --lastname ${LAST_NAME} --local"
+    else
+        echo "ERROR: invalid data: ${user_info}"
     fi
     if [ "${ROLE}" = "system_admin" ]
     then
