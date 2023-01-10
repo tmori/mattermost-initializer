@@ -141,20 +141,28 @@ input/base-data/
 以下の書式でチームに所属するユーザ情報を設定します。
 
 ```
-<ユーザ名>:<パスワード>:<email>:<権限>
+<ユーザ名>:<パスワード>:<email>:<権限>[:<ファーストネーム>]
  :
 ```
 
 * <ユーザ名>
+  * username
   * mattermostのログインアカウント名
 * <パスワード>
   * ログイン時のパスワード
   * 大文字、小文字、記号、数字が混じっていること
 * <email>
+  * email
   * メールアドレス
 * <権限>
   * 一般ユーザ：member
   * 管理者：system_admin
+* <ファーストネーム>
+  * firstname
+
+参考情報：
+
+https://docs.mattermost.com/manage/mmctl-command-line-tool.html#mmctl-user-create
 
 
  #### <チーム名>.txt

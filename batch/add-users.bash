@@ -15,7 +15,14 @@ do
     PASSWD=`echo ${user_info} | awk -F: '{print $2}'`
     EMAIL=`echo ${user_info} | awk -F: '{print $3}'`
     ROLE=`echo ${user_info} | awk -F: '{print $4}'`
-    do_cmd "${MATTERMOST_CMD} user create --email ${EMAIL} --username ${USER_NAME} --password ${PASSWD} --local"
+    NUM_OPTS=`echo ${user_info} | awk -F: '{print NF}'`
+    if [ $NUM_OPTS -eq 4 ]
+    then
+        do_cmd "${MATTERMOST_CMD} user create --email ${EMAIL} --username ${USER_NAME} --password ${PASSWD} --local"
+    else
+        FIRST_NAME=`echo ${user_info} | awk -F: '{print $5}'`
+        do_cmd "${MATTERMOST_CMD} user create --email ${EMAIL} --username ${USER_NAME} --password ${PASSWD} --firstname ${FIRST_NAME} --local"
+    fi
     if [ "${ROLE}" = "system_admin" ]
     then
         do_cmd "${MATTERMOST_CMD} roles system_admin ${USER_NAME} --local"
